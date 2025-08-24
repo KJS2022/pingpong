@@ -42,7 +42,7 @@ def draw_court():
 
 def draw_ui():
     score_text = score_font.render(f"{score1} : {score2}", True, LINES)
-    window.blit(score_text,(win_width//2 = score_text.get_width()//2,16))
+    window.blit(score_text,(win_width//2 - score_text.get_width()//2,16))
 
     if winner is not None:
         win_text = hint_font.render(f"Player {winner} wins! Press R to reset", True, LINES)
