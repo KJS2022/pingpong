@@ -20,7 +20,9 @@ BASE_SPEED_PADDLE = 6
 BALL_SPEED_X = 4
 BALL_SPEED_Y = 3
 
-
+racket1 = None
+racket2 = None
+ball = None
 font.init()
 score_font = font.Font(None, 56)
 hint_font = font.Font(None, 28)
