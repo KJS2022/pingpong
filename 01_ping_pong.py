@@ -43,11 +43,17 @@ class Player(GameSprite):
     def clamp(self):
         if self.rect.top < 0:
             self.rect.top = 0
+        if self.rect.bottom > win_height:
+            self.rect.bottom = win_height
+
+    def update_l(self):
+        keys = key.get_pressed()
         if keys[K_w]:
             self.rect.y -= self.speed
         if keys[K_s]:
             self.rect.y += self.speed
         self.clamp()
+
 
     def update_r(self):
         keys = key.get_pressed()
