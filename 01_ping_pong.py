@@ -29,7 +29,33 @@ hint_font = font.Font(None, 28)
 score1, score2 = 0,0
 paused = False 
 
+class GameSprite(sprite.Sprite):
+    def __init__(self,surf,x,y,speed=0):
+        super().__init__()
+        self.image = surf
+        self.rect = self.image.get_rect(topleft=(x,y))
+        self.speed = speed
 
+    def reset(self):
+        window.blit(self.image, self.rect.topleft)
+
+class Player(GameSprite):
+    def clamp(self):
+        if self.rect.top < 0:
+            self.rect.top = 0
+        if keys[K_w]:
+            self.rect.y -= self.speed
+        if keys[K_s]:
+            self.rect.y += self.speed
+        self.clamp()
+
+    def update_r(self):
+        keys = key.get_pressed()
+        if keys[K_UP]:
+            self.rect.y -= self.speed
+        if keys[k_DOWN]:
+            self.rect.y += self.speed
+        self.clamp()
 def draw_court():
     window.fill(BACK)
     draw.rect(window, LINES, Rect(8, 8, win_width - 16, win_height - 16), 4)
