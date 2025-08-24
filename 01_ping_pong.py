@@ -110,6 +110,8 @@ while game:
                 racket2.rect.centery = win_height // 2
                 ball.center_serve(direction=1)
 
+    racket1.update_l()
+    racket2.update_r()
     draw_court()
     draw_ui()
     racket1.reset()
