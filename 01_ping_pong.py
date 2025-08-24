@@ -72,6 +72,9 @@ while game:
                 ball.center_serve(direction=1)
 
     draw_court()
+    draw_ui()
     display.update()
     clock.tick(FPS)
+
+quit()
     
