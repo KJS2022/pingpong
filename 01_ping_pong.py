@@ -20,6 +20,27 @@ BASE_SPEED_PADDLE = 6
 BALL_SPEED_X = 4
 BALL_SPEED_Y = 3
 
+
+def draw_court():
+    window.fill(BACK)
+    draw.rect(window, LINES Rect(8,8, win_width - 16), width=4)
+
+    dash_h = 18
+    gap_h = 14
+    x = win_width //2
+    y = 8
+    while y< win_height - 8:
+        draw.line(window,LINES, (x,y),(x, min(y + dash_h, win_height - 8)),width=4)
+        y += dash_h + gap_h
+
+
+
+
+
+
+
+
+
 game = True
 while game:
     for e in event.get():
