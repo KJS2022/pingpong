@@ -26,6 +26,7 @@ score_font = font.Font(None, 56)
 hint_font = font.Font(None, 28)
 score1, score2 = 0,0
 paused = False 
+winner = None
 
 class GameSprite(sprite.Sprite):
     def __init__(self,surf,x,y,speed=0):
@@ -57,7 +58,7 @@ class Player(GameSprite):
         keys = key.get_pressed()
         if keys[K_UP]:
             self.rect.y -= self.speed
-        if keys[k_DOWN]:
+        if keys[K_DOWN]:
             self.rect.y += self.speed
         self.clamp()
 
