@@ -20,8 +20,6 @@ BASE_SPEED_PADDLE = 6
 BALL_SPEED_X = 4
 BALL_SPEED_Y = 3
 
-racket1 = None
-racket2 = None
 ball = None
 font.init()
 score_font = font.Font(None, 56)
@@ -62,6 +60,15 @@ class Player(GameSprite):
         if keys[k_DOWN]:
             self.rect.y += self.speed
         self.clamp()
+
+paddle_surf = Surface((PAD_W,PAD_H))
+paddle_surf.fill(PADD)
+
+racket1= Player(paddle_surf.copy(),PAD_GAP,(win_height - PAD_H)//2,BASE_SPEED_PADDLE)
+racket2 = Player(paddle_surf.copy(),win_width - PAD_GAP - PAD_W,(win_height - PAD_H)//2,BASE_SPEED_PADDLE)
+
+
+
 def draw_court():
     window.fill(BACK)
     draw.rect(window, LINES, Rect(8, 8, win_width - 16, win_height - 16), 4)
