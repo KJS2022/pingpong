@@ -20,11 +20,17 @@ BASE_SPEED_PADDLE = 6
 BALL_SPEED_X = 4
 BALL_SPEED_Y = 3
 
+
+font.init()
+score_font = font.Font(None, 56)
+hint_font = font.Font(None, 28)
 score1, score2 = 0,0
 paused = False 
+
+
 def draw_court():
     window.fill(BACK)
-    draw.rect(window, LINES, Rect(8,8, win_width - 16), width=4)
+    draw.rect(window, LINES, Rect(8, 8, win_width - 16, win_height - 16), width=4)
 
     dash_h = 18
     gap_h = 14
@@ -34,8 +40,13 @@ def draw_court():
         draw.line(window,LINES, (x,y),(x, min(y + dash_h, win_height - 8)),width=4)
         y += dash_h + gap_h
 
+def draw_ui():
+    score_text = score_font.render(f"{score1} : {score2}", True, LINES)
+    window.blit(score_text,(win_width//2 = score_text.get_width()//2,16))
 
-
+    if winner is not None:
+        win_text = hint_font.render(f"Player {winner} wins! Press R to reset", True, LINES)
+        window.blit(win_text,(win_width//2 - win_text.get_width()//2,60))
 
 
 
@@ -59,8 +70,7 @@ while game:
                 racket2.rect.centery = win_height // 2
                 ball.center_serve(direction=1)
 
-    if paused:
-        draw_court()
-        display.update()
-        clock.tick(fps)
+    draw_court()
+    display.update()
+    clock.tick(FPS)
     
