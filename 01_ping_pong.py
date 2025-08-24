@@ -112,6 +112,8 @@ while game:
 
     draw_court()
     draw_ui()
+    racket1.reset()
+    racket2.reset()
     display.update()
     clock.tick(FPS)
 
