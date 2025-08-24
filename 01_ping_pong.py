@@ -24,7 +24,7 @@ score1, score2 = 0,0
 paused = False 
 def draw_court():
     window.fill(BACK)
-    draw.rect(window, LINES Rect(8,8, win_width - 16), width=4)
+    draw.rect(window, LINES, Rect(8,8, win_width - 16), width=4)
 
     dash_h = 18
     gap_h = 14
