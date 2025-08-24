@@ -31,13 +31,12 @@ paused = False
 def draw_court():
     window.fill(BACK)
     draw.rect(window, LINES, Rect(8, 8, win_width - 16, win_height - 16), width=4)
-
     dash_h = 18
     gap_h = 14
-    x = win_width //2
+    x = win_width // 2
     y = 8
-    while y< win_height - 8:
-        draw.line(window,LINES, (x,y),(x, min(y + dash_h, win_height - 8)),width=4)
+    while y < win_height - 8:
+        draw.line(window, LINES, (x, y), (x, min(y + dash_h, win_height - 8)), width=4)
         y += dash_h + gap_h
 
 def draw_ui():
