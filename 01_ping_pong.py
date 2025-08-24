@@ -20,7 +20,8 @@ BASE_SPEED_PADDLE = 6
 BALL_SPEED_X = 4
 BALL_SPEED_Y = 3
 
-
+score1, score2 = 0,0
+paused = False 
 def draw_court():
     window.fill(BACK)
     draw.rect(window, LINES Rect(8,8, win_width - 16), width=4)
@@ -54,7 +55,12 @@ while game:
             if e.key == K_r:
                 score1 = score2 = 0
                 winner = None
-                racket1.rect.centery = win_height //2
-                racket2.rect.centery = win_height //2
+                racket1.rect.centery = win_height // 2
+                racket2.rect.centery = win_height // 2
                 ball.center_serve(direction=1)
+
+    if paused:
+        draw_court()
+        display.update()
+        clock.tick(fps)
     
