@@ -62,6 +62,25 @@ class Player(GameSprite):
             self.rect.y += self.speed
         self.clamp()
 
+class Ball(GameSprite):
+    def __init__(self,radius):
+        #SRCALPHA -> transparency
+        surf = Surface((radius*2,radius*2), SRCALPHA) #create a ball
+        draw.circle(surf, BALLC, (radius,radius),radius)
+        super().__init__(surf,win_width//2 - radius, win_height//2 - radius, 0)
+        self.vx = BALL_SPEED_X
+        self.vy = BALL_SPEED_Y
+        self.radius = radius
+
+    def center_serve(self, direction=1):
+        self.rect.center = (win_width //2, win_height // 2)
+        self.vx = BALL_SPEED_X * direction
+        self.vy = BALL_SPEED_Y
+
+
+
+
+
 paddle_surf = Surface((PAD_W,PAD_H))
 paddle_surf.fill(PADD)
 
