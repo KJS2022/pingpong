@@ -116,7 +116,20 @@ def draw_ui():
         win_text = hint_font.render(f"Player {winner} wins! Press R to reset", True, LINES)
         window.blit(win_text,(win_width//2 - win_text.get_width()//2,60))
 
+def  handle_paddle_collisions():
+    global ball 
 
+    if sprite.collide_rect(racket1,ball) and ball.vx < 0:
+        ball.rect.left = racket1.rect.right
+        ball.vx = abs(ball.vx)
+        offset = (ball.rect.centery - racket1.rect.centery)/(racket1.rect.height /2)
+        ball.vy = max(-7, min(7,ball.vy + 4 * offset))
+
+    if sprite.collide_rect(racket2,ball) and ball.vx > 0:
+        ball.rect.right = racket2.rect.left
+        ball.vx = -abs(ball.vx)
+        offset = (ball.rect.centery - racket2.rect.centery) / (racket2.rect.height /2 )
+        ball.vy = max(-7, min(7, ball.vy + 4 * offset))
 
 
 
@@ -141,9 +154,9 @@ while game:
     racket1.update_l()
     racket2.update_r()
     ball.update()
+    hamdle_paddle_collisions()
 
 
-    
     draw_court()
     draw_ui()
     racket1.reset()
