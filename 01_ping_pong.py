@@ -146,7 +146,7 @@ def handle_scoring():
     if ball.rect.left <=0:
         score2 += 1
         ball.center_serve(direction=-1)
-    if ball.rect.right >= win_height:
+    if ball.rect.right >= win_width:
         score1+=1
         ball.center_serve(direction=1)
 
