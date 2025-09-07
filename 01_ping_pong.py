@@ -19,6 +19,7 @@ PAD_GAP = 30
 BASE_SPEED_PADDLE = 6
 BALL_SPEED_X = 4
 BALL_SPEED_Y = 3
+WIN_SCORE = 5
 
 ball = None
 font.init()
@@ -81,8 +82,17 @@ class Ball(GameSprite):
         self.rect.x += self.vx #movement
         self.rect.y += self.vy #movement
         #bounce on top/bottom walls
-        if self.rect.top <= 0 or self.rect.bottom >= win_height:
-            self.vy *= -1
+        if self.rect.top <= 0:
+            self.rect.top = 0
+            self.vy = abs(self.vy)
+            if self.vy == 0:
+                self.vy = BALL_SPEED_Y
+        
+        elif self.rect.bottom >= win_height:
+            self.rect.bottom = win_height
+            self.vy = -abs(self.vy)
+            if self.vy == 0:
+                self.vy = -BALL_SPEED_Y
         #vx > 0 , ball moves right
         #vx <0, ball moves left
         #vy >0, ball moves down
@@ -131,7 +141,21 @@ def handle_paddle_collisions():
         offset = (ball.rect.centery - racket2.rect.centery) / (racket2.rect.height /2 )
         ball.vy = max(-7, min(7, ball.vy + 4 * offset))
 
+def handle_scoring():
+    global score1,score2,winner, paused
+    if ball.rect.left <=0:
+        score2 += 1
+        ball.center_serve(direction=-1)
+    if ball.rect.right >= win_height:
+        score1+=1
+        ball.center_serve(direction=1)
 
+    if score1 >= WIN_SCORE or score2>= WIN_SCORE:
+        if score1 >= WIN_SCORE:
+            winner=1
+        else:
+            winner =2
+        paused = True
 
 
 game = True
@@ -151,10 +175,19 @@ while game:
                 racket2.rect.centery = win_height // 2
                 ball.center_serve(direction=1)
 
+    if paused:
+        draw_court()
+        draw_ui()
+        pause_text = hint_font.render("Paused (P to resume and R to reset)",True,LINES)
+        window.blit(pause_text,(win_width//2 - pause_text.get_width()//2, win_height//2 -14))
+        display.update()
+        clock.tick(FPS)
+        continue
     racket1.update_l()
     racket2.update_r()
     ball.update()
     handle_paddle_collisions()
+    handle_scoring()
 
 
     draw_court()
