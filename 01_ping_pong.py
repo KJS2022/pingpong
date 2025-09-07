@@ -83,8 +83,10 @@ class Ball(GameSprite):
         #bounce on top/bottom walls
         if self.rect.top <= 0 or self.rect.bottom >= win_height:
             self.vy *= -1
-
-
+        #vx > 0 , ball moves right
+        #vx <0, ball moves left
+        #vy >0, ball moves down
+        #vy <0, ball moves up
 
 
 paddle_surf = Surface((PAD_W,PAD_H))
@@ -92,7 +94,7 @@ paddle_surf.fill(PADD)
 
 racket1= Player(paddle_surf.copy(),PAD_GAP,(win_height - PAD_H)//2,BASE_SPEED_PADDLE)
 racket2 = Player(paddle_surf.copy(),win_width - PAD_GAP - PAD_W,(win_height - PAD_H)//2,BASE_SPEED_PADDLE)
-
+ball = Ball(BALL_R)
 
 
 def draw_court():
@@ -138,10 +140,15 @@ while game:
 
     racket1.update_l()
     racket2.update_r()
+    ball.update()
+
+
+    
     draw_court()
     draw_ui()
     racket1.reset()
     racket2.reset()
+    ball.reset()
     display.update()
     clock.tick(FPS)
 
