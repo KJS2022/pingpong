@@ -77,6 +77,12 @@ class Ball(GameSprite):
         self.vx = BALL_SPEED_X * direction
         self.vy = BALL_SPEED_Y
 
+    def update(self):
+        self.rect.x += self.vx #movement
+        self.rect.y += self.vy #movement
+        #bounce on top/bottom walls
+        if self.rect.top <= 0 or self.rect.bottom >= win_height:
+            self.vy *= -1
 
 
 
