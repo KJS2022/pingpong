@@ -1,8 +1,26 @@
 # pingpong
-this is a simple two player ping pong game🏓
 
-# controls
-1.For player 1, W for up and S for down 
-2.For player 2, arrow key up⬆️ for going up, arrow key down⬇️ for going down
-3.For game pause, press 🅿️.
-4.For game reset, press 
+This is a simple two player ping pong game🏓
+
+## Getting Started
+
+This ping pong game🏓 has two player. First to 5 win!
+
+### Controls
+
+The controls needed
+- For player 1, W for up and S for down 
+- For player 2, arrow key up⬆️ for going up, arrow key down⬇️ for going down
+- For game pause, press 🅿️.
+- For game reset, press R.
+
+## Built With
+  - pygame
+## Authors
+
+  - **KONG JIN SON** - *Provided README Template* -
+    [PurpleBooth](https://github.com/KJS2022)
+
+## License
+
+This project is licensed under the [CApache License 2.0](LICENSE.md)
