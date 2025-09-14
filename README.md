@@ -4,7 +4,7 @@ This is a simple two player ping pong game🏓
 
 ## Getting Started
 
-This ping pong game🏓 has two player. First to 5 win!
+This ping pong game🏓 has two player. First to 5 wins win!
 
 ### Controls
 
