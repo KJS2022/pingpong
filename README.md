@@ -18,7 +18,7 @@ The controls needed
   - pygame
 ## Authors
 
-  - **KONG JIN SON** - *Provided README Template* -
+  - **KONG JIN SON** - *Provided README* -
     [KJS2022](https://github.com/KJS2022)
 
 ## License
