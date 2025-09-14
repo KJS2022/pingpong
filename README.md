@@ -4,9 +4,9 @@ This is a simple two player ping pong game🏓
 
 ## Getting Started
 
-This ping pong game🏓 has two player. First to 5 win!
+This ping pong game🏓 has two player. First to 5 wins win!
 
-### Controls
+## Controls
 
 The controls needed
 - For player 1, W for up and S for down 
@@ -18,7 +18,7 @@ The controls needed
   - pygame
 ## Authors
 
-  - **KONG JIN SON** - *Provided README Template* -
+  - **KONG JIN SON** - *Provided README* -
     [KJS2022](https://github.com/KJS2022)
 
 ## License
