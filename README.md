@@ -6,7 +6,7 @@ This is a simple two player ping pong game🏓
 
 This ping pong game🏓 has two player. First to 5 wins win!
 
-### Controls
+## Controls
 
 The controls needed
 - For player 1, W for up and S for down 
