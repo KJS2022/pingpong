@@ -19,8 +19,8 @@ The controls needed
 ## Authors
 
   - **KONG JIN SON** - *Provided README Template* -
-    [PurpleBooth](https://github.com/KJS2022)
+    [KJS2022](https://github.com/KJS2022)
 
 ## License
 
-This project is licensed under the [CApache License 2.0](LICENSE.md)
+This project is licensed under the [CApache License 2.0](LICENSE)
